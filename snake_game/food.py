@@ -12,7 +12,7 @@ class Food(Turtle):
         self.shape("circle")
         self.penup()
         self.shapesize(stretch_len=0.5, stretch_wid=0.5)
-        self.color("purple")
+        self.color("white")
         self.speed("fastest")
 
         # randomly go to a location on the screen
