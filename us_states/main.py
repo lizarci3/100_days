@@ -21,10 +21,17 @@ all_states_names = states_locations['state_lowered'].to_list()
 
 guessed_correctly = 0
 list_guessed_states = []
+
 while guessed_correctly < 50:
 
     typed_answer = screen.textinput(title=f"Guess the state {guessed_correctly}/50", prompt='Write down the state name')
     answer_state = typed_answer.lower()
+
+    if answer_state == 'exit':
+        missing_states = [state for state in all_states_names if state not in list_guessed_states]
+        new_data = pd.DataFrame(missing_states)
+        new_data.to_csv('states_to_learn.csv')
+        break
 
     if answer_state in all_states_names:
 
